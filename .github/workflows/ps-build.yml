@@ -30,4 +30,9 @@ jobs:
 
       - name: Display MajorMinorPatch
         run: |
-          echo "MajorMinorPatch: $GITVERSION_MajorMinorPatch"
+          echo "MajorMinorPatch: $GITVERSION_MAJORMINORPATCH"
+
+      - name: Execute Build
+        run: tools/build.ps1 -Task BuildWithTests
+        shell: pwsh
+
