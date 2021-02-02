@@ -36,9 +36,15 @@ jobs:
         run: tools/build.ps1 -Task BuildWithTests
         shell: pwsh
 
-      - name: Upload artifact
+      - name: Upload Release artifact
         uses: actions/upload-artifact@v2
         with:
           name: Release
           path: ${{ github.workspace }}/Release
+
+      - name: Upload Tools artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Tools
+          path: ${{ github.workspace }}/tools
 
