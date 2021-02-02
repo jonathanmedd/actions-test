@@ -20,5 +20,5 @@ function Test-1 {
         [String]$Name
     )
 
-        Write-Host "Hello there $Name"
+        Write-Output "Hello there $Name"
 }

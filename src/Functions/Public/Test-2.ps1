@@ -20,5 +20,5 @@ function Test-2 {
         [String]$Name
     )
 
-        Write-Host "$Name you are a bold one"
+        Write-Output "$Name you are a bold one"
 }
