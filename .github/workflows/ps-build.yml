@@ -1,0 +1,31 @@
+name: Process PS Module
+on: push
+
+jobs:
+  build:
+
+    name: Build module
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/@v0.9.8
+      with:
+      versionSpec: '5.x'
+
+    - name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0.9.8
+      with:
+        useConfigFile: true
+        configFilePath: GitVersion.yml
+
+    - name: Display SemVer
+      run: |
+        echo "SemVer: $GITVERSION_SEMVER"
+
+    - name: Display MajorMinorPatch
+      run: |
+        echo "MajorMinorPatch: $GITVERSION_MajorMinorPatch"
