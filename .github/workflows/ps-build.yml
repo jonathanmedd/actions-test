@@ -5,7 +5,7 @@ jobs:
   build:
 
     name: Build module
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
 
       - name: Check out repository code
