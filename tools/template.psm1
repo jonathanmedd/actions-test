@@ -9,10 +9,3 @@
 
 
 #>
-
-# --- Clean up bricksetConnection variable on module remove
-$ExecutionContext.SessionState.Module.OnRemove = {
-
-    Remove-Variable -Name bricksetConnection -Force -ErrorAction SilentlyContinue
-
-}

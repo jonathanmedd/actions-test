@@ -20,6 +20,6 @@ Properties {
 
 # ----------------- GitHub ---------------------------------------
     $OrgName = "jonathanmedd"
-    $RepositoryName = "BricksetModule"
-    $RepositoryUrl = "https://github.com/jonathanmedd/BricksetModule"
+    $RepositoryName = "ActionsTestModule"
+    $RepositoryUrl = "https://github.com/jonathanmedd/actions-test"
 }
