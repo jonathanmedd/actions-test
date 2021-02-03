@@ -6,7 +6,7 @@ Properties {
 
 # ----------------- General -------------------------------------
     $DocsDirectory = "$ENV:BHProjectPath\docs"
-    $ModuleName = "actions-test"
+    $ModuleName = "ActionsTest"
     $ModuleAuthor = "Jonathan Medd"
     $ReleaseDirectoryPath = "$($ENV:BHProjectPath)\Release\$($ModuleName)"
     $ModuleManifestVersion = "0.0.0"
