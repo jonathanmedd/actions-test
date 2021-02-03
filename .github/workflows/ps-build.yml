@@ -6,6 +6,8 @@ jobs:
 
     name: Build module
     runs-on: windows-latest
+    outputs:
+      majorMinorPatch: ${{ steps.gitversion.outputs.majorMinorPatch }}
     steps:
 
       - name: Check out repository code
@@ -49,7 +51,6 @@ jobs:
           name: Tools
           path: ${{ github.workspace }}/tools
 
-
   test_release:
 
     name: Test Release module
@@ -68,10 +69,16 @@ jobs:
   prod_release:
 
     name: Prod Release module
-    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    if: ${{ startsWith(github.ref, 'refs/heads/feature/') }}
     runs-on: windows-latest
     needs: build
+    env:
+      MAJORMINORPATCH: ${{ needs.build.outputs.majorMinorPatch }}
     steps:
 
       - name: Download artifact
         uses: actions/download-artifact@v2
+
+      - name: Display version
+        run: |
+          echo SemVer: MAJORMINORPATCH
