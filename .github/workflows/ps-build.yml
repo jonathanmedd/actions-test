@@ -26,11 +26,11 @@ jobs:
 
       - name: Display SemVer
         run: |
-          echo "SemVer: $GITVERSION_SEMVER"
+          echo "SemVer: $GitVersion_SemVer"
 
       - name: Display MajorMinorPatch
         run: |
-          echo "MajorMinorPatch: $GITVERSION_MAJORMINORPATCH"
+          echo "MajorMinorPatch: $GitVersion_MajorMinorPatch"
 
       - name: Execute Build
         run: tools/build.ps1 -Task BuildWithTests
@@ -67,7 +67,7 @@ jobs:
   prod_release:
 
     name: Prod Release module
-    if: ${{ startsWith(github.ref, 'refs/heads/feature/') }}
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: windows-latest
     needs: build
     steps:
