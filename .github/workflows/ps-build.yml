@@ -49,23 +49,17 @@ jobs:
           path: ${{ github.workspace }}/tools
 
 
-  release:
+  test_release:
 
-    name: Release module
+    name: Test Release module
+    if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
     runs-on: windows-latest
     needs: build
     steps:
 
       - name: Download artifact
         uses: actions/download-artifact@v2
-        if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
-
-      - name: 'Echo download path'
-        run: Write-Host ${{steps.download.outputs.download-path}}
-        shell: pwsh
-        if: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Display structure of downloaded files
         run: Get-Childitem -Recurse
         shell: pwsh
-        if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
