@@ -65,5 +65,5 @@ jobs:
         shell: pwsh
 
       - name: Publish Module to Test PowerShell gallery
-        run: .\Tools\Publish-PSModule.ps1 -ApiKey ${{ secrets.PSTestGalleryApiKey }} -Path ".\Release\actions-test" -CheckForExistingVersion -PreRelease -Verbose
+        run: .\Tools\Publish-PSModule.ps1 -ApiKey ${{ secrets.PSTestGalleryApiKey }} -Path ".\Release\ActionsTest" -CheckForExistingVersion -PreRelease -Verbose
         shell: pwsh
