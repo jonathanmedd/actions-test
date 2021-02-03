@@ -81,4 +81,4 @@ jobs:
 
       - name: Display version
         run: |
-          echo SemVer: MAJORMINORPATCH
+          echo MajorMinorPatch: $MAJORMINORPATCH
