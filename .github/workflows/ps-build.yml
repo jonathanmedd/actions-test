@@ -19,6 +19,7 @@ jobs:
           versionSpec: '5.x'
 
       - name: Determine Version
+        id:   gitversion
         uses: gittools/actions/gitversion/execute@v0.9.8
         with:
           useConfigFile: true
@@ -26,11 +27,11 @@ jobs:
 
       - name: Display SemVer
         run: |
-          echo "SemVer: $GitVersion_SemVer"
+          echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
 
       - name: Display MajorMinorPatch
         run: |
-          echo "MajorMinorPatch: $GitVersion_MajorMinorPatch"
+          echo "MajorMinorPatch: ${{ steps.gitversion.outputs.majorMinorPatch }}"
 
       - name: Execute Build
         run: tools/build.ps1 -Task BuildWithTests
