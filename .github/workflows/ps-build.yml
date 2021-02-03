@@ -81,4 +81,5 @@ jobs:
 
       - name: Display version
         run: |
-          echo MajorMinorPatch: $MAJORMINORPATCH
+          Write-Host "MajorMinorPatch: $MAJORMINORPATCH"
+        shell: pwsh
