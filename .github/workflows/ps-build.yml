@@ -88,6 +88,6 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ".\\Release\\ActionsTest.zip"
+          artifacts: ".\\Release\\*.zip"
           body: "Testing"
           token: ${{ secrets.GITHUB_TOKEN }}
