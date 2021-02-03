@@ -58,14 +58,14 @@ jobs:
 
       - name: Download artifact
         uses: actions/download-artifact@v2
-        if: ${{ github_ref == 'refs/heads/feature/create-ci' }}
+        if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
 
       - name: 'Echo download path'
         run: Write-Host ${{steps.download.outputs.download-path}}
         shell: pwsh
-        if: ${{ github_ref == 'refs/heads/feature/create-ci' }}
+        if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
 
       - name: Display structure of downloaded files
         run: Get-Childitem -Recurse
         shell: pwsh
-        if: ${{ github_ref == 'refs/heads/feature/create-ci' }}
+        if: ${{ github.ref == 'refs/heads/feature/create-ci' }}
