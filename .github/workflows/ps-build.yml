@@ -54,7 +54,7 @@ jobs:
   test_release:
 
     name: Test Release module
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: windows-latest
     needs: build
     steps:
@@ -81,6 +81,12 @@ jobs:
           Write-Host "MajorMinorPatch: $ENV:MAJORMINORPATCH"
         shell: pwsh
 
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Download artifact
         uses: actions/download-artifact@v2
 
@@ -88,6 +94,7 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
+          name: "ActionsTest"
           artifacts: ".\\Release\\*.zip"
-          body: "Testing"
+          body: ${{steps.github_release.outputs.changelog}}
           token: ${{ secrets.GITHUB_TOKEN }}
