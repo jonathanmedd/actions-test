@@ -81,9 +81,14 @@ jobs:
           Write-Host "MajorMinorPatch: $ENV:MAJORMINORPATCH"
         shell: pwsh
 
+      - name: Checkout
+          uses: actions/checkout@v2
+
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@main
+        with:
+          configuration: "config/changelogConfig.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
