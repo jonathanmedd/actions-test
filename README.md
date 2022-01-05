@@ -1,3 +1,3 @@
 # actions-test
 
-Time for Release 1.0.0
+Time for Release 2.0.0
