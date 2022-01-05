@@ -71,9 +71,7 @@ jobs:
   prod_release:
 
     name: Prod Release module
-    if: |
-      startsWith(github.ref, 'refs/tags/v') ||
-      startsWith(github.ref, 'refs/heads/support')
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: windows-latest
     needs: build
     env:
