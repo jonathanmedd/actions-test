@@ -56,7 +56,7 @@ jobs:
     name: Test Release module
     if: |
       github.ref == 'refs/heads/main' ||
-      startsWith(github.ref, 'refs/tags/support')
+      startsWith(github.ref, 'refs/heads/support')
     runs-on: windows-latest
     needs: build
     steps:
@@ -73,7 +73,7 @@ jobs:
     name: Prod Release module
     if: |
       startsWith(github.ref, 'refs/tags/v') ||
-      startsWith(github.ref, 'refs/tags/support')
+      startsWith(github.ref, 'refs/heads/support')
     runs-on: windows-latest
     needs: build
     env:
